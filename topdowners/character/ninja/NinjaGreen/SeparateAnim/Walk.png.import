@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkcrug0uaa6ii"
-path="res://.godot/imported/Faceset.png-ef7ddd039698f674c6b4e9bd72954808.ctex"
+uid="uid://jgm7pww0o4wx"
+path="res://.godot/imported/Walk.png-45739d65a0ef4f75c593081d868a685f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/Faceset.png"
-dest_files=["res://.godot/imported/Faceset.png-ef7ddd039698f674c6b4e9bd72954808.ctex"]
+source_file="res://character/ninja/NinjaGreen/SeparateAnim/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-45739d65a0ef4f75c593081d868a685f.ctex"]
 
 [params]
 

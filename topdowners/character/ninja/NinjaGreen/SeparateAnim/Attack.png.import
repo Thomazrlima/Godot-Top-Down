@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqial2jbqoscf"
-path="res://.godot/imported/Jump.png-de4ff97572fcfcf18bb7a34605da2729.ctex"
+uid="uid://cycqcm5mc6vxj"
+path="res://.godot/imported/Attack.png-2a99462d20b1c5a50c489f973ae85342.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Jump.png"
-dest_files=["res://.godot/imported/Jump.png-de4ff97572fcfcf18bb7a34605da2729.ctex"]
+source_file="res://character/ninja/NinjaGreen/SeparateAnim/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-2a99462d20b1c5a50c489f973ae85342.ctex"]
 
 [params]
 

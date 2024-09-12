@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cik3bilfph8ug"
-path="res://.godot/imported/Idle.png-b752cd67ff5165f5572b3993393364e3.ctex"
+uid="uid://dqqnlf25bl5hl"
+path="res://.godot/imported/Special1.png-77859b9b407ee030e06dc7a4bbdc501e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SeparateAnim/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-b752cd67ff5165f5572b3993393364e3.ctex"]
+source_file="res://character/ninja/NinjaGreen/SeparateAnim/Special1.png"
+dest_files=["res://.godot/imported/Special1.png-77859b9b407ee030e06dc7a4bbdc501e.ctex"]
 
 [params]
 

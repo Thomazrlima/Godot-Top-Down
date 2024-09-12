@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj8f60xj5wt7m"
-path="res://.godot/imported/SpriteSheet.png-0b4ccae6e810219b76a9c3bbb269cd11.ctex"
+uid="uid://bqial2jbqoscf"
+path="res://.godot/imported/Jump.png-4cef15a51d28f7a10fa4cd0ff60c3da9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ninja Adventure - Asset Pack/Actor/Characters/NinjaGreen/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-0b4ccae6e810219b76a9c3bbb269cd11.ctex"]
+source_file="res://character/ninja/NinjaGreen/SeparateAnim/Jump.png"
+dest_files=["res://.godot/imported/Jump.png-4cef15a51d28f7a10fa4cd0ff60c3da9.ctex"]
 
 [params]
 
