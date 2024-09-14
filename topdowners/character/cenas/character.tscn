@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://crrkqf7j0gil2"]
+[gd_scene load_steps=55 format=3 uid="uid://crrkqf7j0gil2"]
 
 [ext_resource type="Texture2D" uid="uid://dj8f60xj5wt7m" path="res://character/ninja/NinjaGreen/SpriteSheet.png" id="1_1r2kg"]
 [ext_resource type="Script" path="res://character/codigos/character.gd" id="1_ccwwm"]
+[ext_resource type="Texture2D" uid="uid://jf7mn6s8uh7w" path="res://character/ninja/NinjaGreen/Shadow.png" id="2_560t6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yprwf"]
 size = Vector2(14, 4)
@@ -650,6 +651,70 @@ tracks/2/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_hrve0"]
+resource_name = "death"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [25, 8, 24]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("Sprite:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Areaattack/Collision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Areaattack/Collision:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rh3p1"]
 _data = {
 "RESET": SubResource("Animation_fdbfv"),
@@ -657,6 +722,7 @@ _data = {
 "attack-left": SubResource("Animation_tjf8a"),
 "attack-right": SubResource("Animation_yvvgm"),
 "attack-up": SubResource("Animation_fv47y"),
+"death": SubResource("Animation_hrve0"),
 "default": SubResource("Animation_dnyt3"),
 "default left": SubResource("Animation_dq8pc"),
 "default right": SubResource("Animation_ju7vj"),
@@ -708,6 +774,54 @@ blend_point_6/node = SubResource("AnimationNodeAnimation_t8du1")
 blend_point_6/pos = Vector2(1, 1)
 blend_point_7/node = SubResource("AnimationNodeAnimation_ufw6h")
 blend_point_7/pos = Vector2(1, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gd5nx"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2w3mv"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vxtrs"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3tkka"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxe03"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pdbow"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osn3w"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ye8s3"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xggsu"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_dewt5"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_gd5nx")
+blend_point_0/pos = Vector2(-1, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2w3mv")
+blend_point_1/pos = Vector2(-1, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_vxtrs")
+blend_point_2/pos = Vector2(1, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_3tkka")
+blend_point_3/pos = Vector2(1, -1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_bxe03")
+blend_point_4/pos = Vector2(0, 1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_pdbow")
+blend_point_5/pos = Vector2(0, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_osn3w")
+blend_point_6/pos = Vector2(1, 0)
+blend_point_7/node = SubResource("AnimationNodeAnimation_ye8s3")
+blend_point_7/pos = Vector2(0, -0.9)
+blend_point_8/node = SubResource("AnimationNodeAnimation_xggsu")
+blend_point_8/pos = Vector2(-1, 0)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aa5cl"]
@@ -780,18 +894,23 @@ blend_point_7/pos = Vector2(-1, -1)
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pr7sy"]
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_y2wqv")
 states/attack/position = Vector2(406, 200)
+states/death/node = SubResource("AnimationNodeBlendSpace2D_dewt5")
+states/death/position = Vector2(396, 33)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_as80r")
 states/idle/position = Vector2(406, 95)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_vlyop")
 states/walk/position = Vector2(406, 148)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2bsr"]
-size = Vector2(15, 15)
+size = Vector2(27.5, 29.875)
 
-[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("_timer", "_animation_tree")]
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("_timer", "_animation_tree") groups=["character"]]
 script = ExtResource("1_ccwwm")
 _timer = NodePath("AttackTimer")
 _animation_tree = NodePath("AnimationTree")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_560t6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
@@ -813,6 +932,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_pr7sy")
 anim_player = NodePath("../Animation")
 parameters/attack/blend_position = Vector2(0, 0)
+parameters/death/blend_position = Vector2(0, 0)
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0.993641, 0.968085)
 
