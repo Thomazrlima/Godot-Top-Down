@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp2ogbhoxj7fd"
-path="res://.godot/imported/Shadow.png-c4d6e5f71822ec6ee4ee5975a7520085.ctex"
+uid="uid://dqvwlxotrkcot"
+path="res://.godot/imported/Shuriken.png-f8bcff3e731aeb441316c257bfff3298.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ninja Adventure - Asset Pack/Actor/Characters/Shadow.png"
-dest_files=["res://.godot/imported/Shadow.png-c4d6e5f71822ec6ee4ee5975a7520085.ctex"]
+source_file="res://character/ninja/NinjaGreen/Shuriken.png"
+dest_files=["res://.godot/imported/Shuriken.png-f8bcff3e731aeb441316c257bfff3298.ctex"]
 
 [params]
 

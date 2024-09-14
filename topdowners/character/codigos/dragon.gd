@@ -3,8 +3,9 @@ class_name Dragon
 
 var _player_ref = null
 var _is_dead : bool = false
+var health: int = 2
 
-@export_category("Objetcts")
+@export_category("Objects")
 @export var _texture: Sprite2D = null
 @export var _animation: AnimationPlayer = null
 
@@ -36,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		velocity = _direction * 40
 		move_and_slide()
 
-func _animate () -> void:
+func _animate() -> void:
 	if velocity.x > 0:
 		_texture.flip_h = true
 	
@@ -48,6 +49,14 @@ func _animate () -> void:
 		return
 	_animation.play("idle")
 
-func update_health() -> void:
+func take_damage(amount: int) -> void:
+	health -= amount
+	
+	if health <= 0:
+		die()
+
+func die() -> void:
 	_is_dead = true
+	_animation.play("death")
+	await get_tree().create_timer(0.5).timeout
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bgfh7bo3hq1u5"]
+[gd_scene load_steps=21 format=4 uid="uid://bgfh7bo3hq1u5"]
 
 [ext_resource type="Texture2D" uid="uid://dmqkcaesabr0a" path="res://terreno/assets/Tilesets/TilesetVillageAbandoned.png" id="1_t6k11"]
 [ext_resource type="PackedScene" uid="uid://crrkqf7j0gil2" path="res://character/cenas/character.tscn" id="2_6v6ir"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c5qeiiv2pd17l" path="res://terreno/assets/Tilesets/Interior/TilesetInterior.png" id="7_m0g64"]
 [ext_resource type="Script" path="res://componentes/door2.gd" id="9_lmmck"]
 [ext_resource type="PackedScene" uid="uid://bjecbucf4gvbb" path="res://character/cenas/dragon.tscn" id="10_u23e5"]
+[ext_resource type="AudioStream" uid="uid://dgy5ffhyt2kni" path="res://musics/1 - Adventure Begin.ogg" id="11_qy6xw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5s5s"]
 texture = ExtResource("1_t6k11")
@@ -2648,3 +2649,7 @@ teleport_position = Vector2(23, 102)
 
 [node name="Dragon" parent="." instance=ExtResource("10_u23e5")]
 position = Vector2(378, 72)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_qy6xw")
+autoplay = true

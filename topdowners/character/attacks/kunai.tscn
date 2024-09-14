@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bypvtsfs7yrw2"]
+
+[ext_resource type="Script" path="res://character/attacks/kunai.gd" id="1_ngd77"]
+[ext_resource type="Texture2D" uid="uid://dqvwlxotrkcot" path="res://character/ninja/NinjaGreen/Shuriken.png" id="1_ny1p6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7do3"]
+size = Vector2(8, 8)
+
+[node name="Kunai" type="Area2D"]
+script = ExtResource("1_ngd77")
+
+[node name="Texture" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ny1p6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h7do3")
+
+[connection signal="body_entered" from="." to="." method="body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

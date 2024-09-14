@@ -1,7 +1,23 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjecbucf4gvbb"]
+[gd_scene load_steps=13 format=3 uid="uid://bjecbucf4gvbb"]
 
 [ext_resource type="Script" path="res://character/codigos/dragon.gd" id="1_ucfoc"]
-[ext_resource type="Texture2D" uid="uid://tcix8sgika55" path="res://character/Dragon/SpriteSheet.png" id="2_2xw7q"]
+[ext_resource type="Texture2D" uid="uid://tcix8sgika55" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Dragon/SpriteSheet.png" id="2_2xw7q"]
+[ext_resource type="Texture2D" uid="uid://jf7mn6s8uh7w" path="res://character/ninja/NinjaGreen/Shadow.png" id="3_q45ac"]
+
+[sub_resource type="Animation" id="Animation_6g0dm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_y4xdg"]
 resource_name = "idle"
@@ -17,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 4]
-}
-
-[sub_resource type="Animation" id="Animation_6g0dm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_l4g70"]
@@ -119,6 +120,11 @@ script = ExtResource("1_ucfoc")
 _texture = NodePath("Sprite2D")
 _animation = NodePath("AnimationPlayer")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1, 7)
+scale = Vector2(1.16667, 1.14286)
+texture = ExtResource("3_q45ac")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_2xw7q")
 hframes = 4
@@ -134,7 +140,7 @@ show_behind_parent = true
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_0cpmh")
 
-[node name="Detection" type="Area2D" parent="."]
+[node name="Detection" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 show_behind_parent = true
