@@ -2,12 +2,25 @@ extends CharacterBody2D
 class_name Dragon
 
 var _player_ref = null
-var _is_dead : bool = false
+var _is_dead: bool = false
 var health: int = 2
+var attack_damage: int = 1 
+var can_attack: bool = true 
 
 @export_category("Objects")
 @export var _texture: Sprite2D = null
 @export var _animation: AnimationPlayer = null
+@export var attack_cooldown: float = 1.2
+@export var _cooldown_timer: Timer = null
+
+func _ready() -> void:
+	# Inicializar o Timer
+	if _cooldown_timer == null:
+		_cooldown_timer = Timer.new()
+		_cooldown_timer.wait_time = attack_cooldown
+		_cooldown_timer.one_shot = true
+		add_child(_cooldown_timer)
+		_cooldown_timer.connect("timeout", Callable(self, "_on_cooldown_finished"))
 
 func _on_detection_body_entered(_body: Node2D) -> void:
 	if _body.is_in_group("character"):
@@ -31,11 +44,20 @@ func _physics_process(delta: float) -> void:
 		var _direction: Vector2 = global_position.direction_to(_player_ref.global_position)
 		var _distance: float = global_position.distance_to(_player_ref.global_position)
 		
-		if _distance < 20:
-			_player_ref.die()
+		if _distance < 20 and can_attack:
+			attack_player()
 		
 		velocity = _direction * 40
 		move_and_slide()
+
+func attack_player() -> void:
+	if _player_ref != null and not _player_ref.is_dead:
+		_player_ref.take_damage(attack_damage)
+		can_attack = false 
+		_cooldown_timer.start()
+
+func _on_cooldown_finished() -> void:
+	can_attack = true
 
 func _animate() -> void:
 	if velocity.x > 0:

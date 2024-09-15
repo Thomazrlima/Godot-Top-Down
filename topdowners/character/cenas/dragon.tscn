@@ -146,5 +146,8 @@ shape = SubResource("RectangleShape2D_0cpmh")
 show_behind_parent = true
 shape = SubResource("CircleShape2D_l3nuk")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

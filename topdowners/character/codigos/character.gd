@@ -1,8 +1,11 @@
 extends CharacterBody2D
 class_name Character
 
+signal healthChanged
 const KUNAI: PackedScene = preload("res://character/attacks/kunai.tscn")
 
+var maxHealth: int = 3
+var currentHealth: int = 3
 var is_dead: bool = false
 var _state_machine
 var attacking: bool = false
@@ -99,11 +102,21 @@ func get_direction() -> Vector2:
 func _on_attack_timer_timeout() -> void:
 	attacking = false
 
-func _on_areaattack_body_entered(_body) -> void:
-	if _body.is_in_group("enemy"):
-		_body.update_health()
+func take_damage(damage: int) -> void:
+	if is_dead:
+		return
+		
+	currentHealth -= damage
+	healthChanged.emit(currentHealth)
+	
+	if currentHealth <= 0:
+		die()
 
 func die() -> void:
+	if is_dead:
+		return
+
+	print("Character died")
 	is_dead = true
 	_state_machine.travel("death")
 	await get_tree().create_timer(1.0).timeout

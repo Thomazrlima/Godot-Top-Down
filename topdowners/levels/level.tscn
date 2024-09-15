@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=4 uid="uid://bgfh7bo3hq1u5"]
+[gd_scene load_steps=23 format=4 uid="uid://bgfh7bo3hq1u5"]
 
+[ext_resource type="Script" path="res://levels/level.gd" id="1_f37vv"]
 [ext_resource type="Texture2D" uid="uid://dmqkcaesabr0a" path="res://terreno/assets/Tilesets/TilesetVillageAbandoned.png" id="1_t6k11"]
 [ext_resource type="PackedScene" uid="uid://crrkqf7j0gil2" path="res://character/cenas/character.tscn" id="2_6v6ir"]
 [ext_resource type="Texture2D" uid="uid://bhcvyjktkakvw" path="res://terreno/assets/Tilesets/TilesetField.png" id="2_kjmch"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" path="res://componentes/door2.gd" id="9_lmmck"]
 [ext_resource type="PackedScene" uid="uid://bjecbucf4gvbb" path="res://character/cenas/dragon.tscn" id="10_u23e5"]
 [ext_resource type="AudioStream" uid="uid://dgy5ffhyt2kni" path="res://musics/1 - Adventure Begin.ogg" id="11_qy6xw"]
+[ext_resource type="PackedScene" uid="uid://cbxe620bqt7lc" path="res://character/life/life.tscn" id="12_n3j2f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5s5s"]
 texture = ExtResource("1_t6k11")
@@ -2610,6 +2612,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yagik")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_f37vv")
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -2653,3 +2656,7 @@ position = Vector2(378, 72)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_qy6xw")
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Life" parent="CanvasLayer" instance=ExtResource("12_n3j2f")]
