@@ -13,8 +13,12 @@ var can_attack: bool = true
 @export var attack_cooldown: float = 1.2
 @export var _cooldown_timer: Timer = null
 
+@onready var effects = $Effects
+@onready var hurtTimer = $hurtTimer
+
 func _ready() -> void:
-	# Inicializar o Timer
+	effects.play("RESET")
+	
 	if _cooldown_timer == null:
 		_cooldown_timer = Timer.new()
 		_cooldown_timer.wait_time = attack_cooldown
@@ -52,7 +56,7 @@ func _physics_process(delta: float) -> void:
 
 func attack_player() -> void:
 	if _player_ref != null and not _player_ref.is_dead:
-		_player_ref.take_damage(attack_damage)
+		_player_ref.take_damage(attack_damage, global_position)
 		can_attack = false 
 		_cooldown_timer.start()
 
@@ -73,6 +77,11 @@ func _animate() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	
+	effects.play("hurt")
+	hurtTimer.start()
+	await hurtTimer.timeout
+	effects.play("RESET")
 	
 	if health <= 0:
 		die()

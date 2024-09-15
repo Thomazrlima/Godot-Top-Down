@@ -9,6 +9,8 @@ var currentHealth: int = 3
 var is_dead: bool = false
 var _state_machine
 var attacking: bool = false
+var knockback_time: float = 0.5  
+var knockback_timer: float = 0.0  
 
 @export_category("Variables")
 @export var SPEED: float = 90.0
@@ -20,7 +22,13 @@ var attacking: bool = false
 @export var _animation_tree: AnimationTree = null
 @export var _shadow: Sprite2D = null 
 
+@export var knockbackPower: int = 100
+@onready var effects = $Effects
+@onready var hurtTimer = $HurtTimer
+
 func _ready() -> void:
+	effects.play("RESET")
+	
 	if _animation_tree:
 		_state_machine = _animation_tree.get("parameters/playback")
 	if _shadow:
@@ -29,6 +37,11 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if is_dead:
 		return
+
+	if knockback_timer > 0:
+		knockback_timer -= _delta
+		move_and_slide()
+		return 
 		
 	_move()
 	_attack()
@@ -102,12 +115,17 @@ func get_direction() -> Vector2:
 func _on_attack_timer_timeout() -> void:
 	attacking = false
 
-func take_damage(damage: int) -> void:
+func take_damage(damage: int, attacker_position: Vector2) -> void:
 	if is_dead:
 		return
 		
 	currentHealth -= damage
 	healthChanged.emit(currentHealth)
+	knockback(attacker_position)
+	effects.play("hurt")
+	hurtTimer.start()
+	await hurtTimer.timeout
+	effects.play("RESET")
 	
 	if currentHealth <= 0:
 		die()
@@ -121,3 +139,8 @@ func die() -> void:
 	_state_machine.travel("death")
 	await get_tree().create_timer(1.0).timeout
 	get_tree().reload_current_scene()
+
+func knockback(attacker_position: Vector2) -> void:
+	var _knockbackDirection = (global_position - attacker_position).normalized() * knockbackPower
+	velocity = _knockbackDirection
+	knockback_timer = knockback_time 
