@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bmm53nx2tqeo5"]
 
 [ext_resource type="Script" path="res://character/Boy/boy.gd" id="1_6lxtb"]
-[ext_resource type="Texture2D" uid="uid://35y4aa8j4iq4" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/SpriteSheet.png" id="1_e0is2"]
+[ext_resource type="Texture2D" uid="uid://35y4aa8j4iq4" path="res://character/Boy/SpriteSheet.png" id="1_e0is2"]
 [ext_resource type="Texture2D" uid="uid://c1uivd0ibop3k" path="res://dialog/DialogInfo.png" id="3_jsmcy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdgh3"]
