@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://8w74e2p0o4xq"]
+
+[ext_resource type="Script" path="res://dioaog_sreen.gd" id="1_0beet"]
+[ext_resource type="Texture2D" uid="uid://cqrx2cms0hhsn" path="res://dialog/DialogBoxFaceset.png" id="1_b4cg2"]
+[ext_resource type="FontFile" uid="uid://bek5gyrrjvh8b" path="res://dialog/DigitalDisco.ttf" id="3_lcal4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xex6h"]
+font = ExtResource("3_lcal4")
+font_size = 13
+
+[node name="DioaogSreen" type="Control" node_paths=PackedStringArray("_name", "_dialog", "_faceset")]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -70.0
+offset_right = 150.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_0beet")
+_name = NodePath("Name")
+_dialog = NodePath("DialogBoxFaceset/HContainer/VBoxContainer/Dialog")
+_faceset = NodePath("DialogBoxFaceset/HContainer/Border/Faceset")
+
+[node name="DialogBoxFaceset" type="Sprite2D" parent="."]
+position = Vector2(150, 27)
+texture = ExtResource("1_b4cg2")
+
+[node name="HContainer" type="HBoxContainer" parent="DialogBoxFaceset"]
+offset_left = -143.0
+offset_top = -14.0
+offset_right = 141.0
+offset_bottom = 22.0
+theme_override_constants/separation = 8
+
+[node name="Border" type="ColorRect" parent="DialogBoxFaceset/HContainer"]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+
+[node name="Faceset" type="TextureRect" parent="DialogBoxFaceset/HContainer/Border"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBoxFaceset/HContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Dialog" type="RichTextLabel" parent="DialogBoxFaceset/HContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_lcal4")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = -3.0
+offset_right = 62.0
+offset_bottom = 13.0
+text = "garoto"
+label_settings = SubResource("LabelSettings_xex6h")

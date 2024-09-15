@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mucvrstm1j4s"
-path="res://.godot/imported/SpriteSheet.png-bb312f5d5e9d09c6cc26c4adefbb1470.ctex"
+uid="uid://dk83ttsnejwux"
+path="res://.godot/imported/Faceset.png-d5e33404211b8fb54a87f0e45a7e615e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/Dragon/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-bb312f5d5e9d09c6cc26c4adefbb1470.ctex"]
+source_file="res://character/Boy/Faceset.png"
+dest_files=["res://.godot/imported/Faceset.png-d5e33404211b8fb54a87f0e45a7e615e.ctex"]
 
 [params]
 

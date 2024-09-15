@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmm53nx2tqeo5"]
+
+[ext_resource type="Script" path="res://character/Boy/boy.gd" id="1_6lxtb"]
+[ext_resource type="Texture2D" uid="uid://35y4aa8j4iq4" path="res://Ninja Adventure - Asset Pack/Actor/Characters/Boy/SpriteSheet.png" id="1_e0is2"]
+[ext_resource type="Texture2D" uid="uid://c1uivd0ibop3k" path="res://dialog/DialogInfo.png" id="3_jsmcy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdgh3"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_hnh12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dvtof"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [20, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nstmo"]
+_data = {
+"RESET": SubResource("Animation_hnh12"),
+"idle": SubResource("Animation_dvtof")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkmj6"]
+radius = 35.0
+
+[sub_resource type="Animation" id="Animation_gljdk"]
+resource_name = "Dialog"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ndf2s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m0mkm"]
+_data = {
+"Dialog": SubResource("Animation_gljdk"),
+"RESET": SubResource("Animation_ndf2s")
+}
+
+[node name="Boy" type="CharacterBody2D"]
+script = ExtResource("1_6lxtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sdgh3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e0is2")
+hframes = 4
+vframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nstmo")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qkmj6")
+
+[node name="Dialog" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(0.451563, 0.53125)
+texture = ExtResource("3_jsmcy")
+hframes = 4
+
+[node name="AnimationDialog" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Dialog")
+libraries = {
+"": SubResource("AnimationLibrary_m0mkm")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

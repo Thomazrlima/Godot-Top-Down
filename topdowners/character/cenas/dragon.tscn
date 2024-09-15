@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjecbucf4gvbb"]
+[gd_scene load_steps=18 format=3 uid="uid://bjecbucf4gvbb"]
 
 [ext_resource type="Script" path="res://character/codigos/dragon.gd" id="1_ucfoc"]
 [ext_resource type="Texture2D" uid="uid://tcix8sgika55" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Dragon/SpriteSheet.png" id="2_2xw7q"]
@@ -165,6 +165,12 @@ _data = {
 "hurt": SubResource("Animation_ax0rg")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap71k"]
+bg_color = Color(0.843413, 0.0917118, 3.85046e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yiaiv"]
+bg_color = Color(0.238915, 0.715983, 0, 1)
+
 [node name="Dragon" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["enemy"]]
 script = ExtResource("1_ucfoc")
 _texture = NodePath("Sprite2D")
@@ -214,6 +220,17 @@ libraries = {
 
 [node name="hurtTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -9.0
+offset_top = -10.0
+offset_right = 9.0
+offset_bottom = -8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ap71k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yiaiv")
+max_value = 2.0
+value = 2.0
+show_percentage = false
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

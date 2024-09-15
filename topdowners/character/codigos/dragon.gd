@@ -15,9 +15,12 @@ var can_attack: bool = true
 
 @onready var effects = $Effects
 @onready var hurtTimer = $hurtTimer
+@onready var life_bar: ProgressBar = $ProgressBar
 
 func _ready() -> void:
 	effects.play("RESET")
+	life_bar.max_value = 2
+	life_bar.value = health
 	
 	if _cooldown_timer == null:
 		_cooldown_timer = Timer.new()
@@ -77,6 +80,7 @@ func _animate() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	life_bar.value = health  
 	
 	effects.play("hurt")
 	hurtTimer.start()

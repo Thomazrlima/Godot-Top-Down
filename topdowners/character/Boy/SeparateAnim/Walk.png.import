@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mucvrstm1j4s"
-path="res://.godot/imported/SpriteSheet.png-bb312f5d5e9d09c6cc26c4adefbb1470.ctex"
+uid="uid://cwdbyuritk6t0"
+path="res://.godot/imported/Walk.png-c014df5be7be8d9d4708674c455dfa30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/Dragon/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-bb312f5d5e9d09c6cc26c4adefbb1470.ctex"]
+source_file="res://character/Boy/SeparateAnim/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-c014df5be7be8d9d4708674c455dfa30.ctex"]
 
 [params]
 

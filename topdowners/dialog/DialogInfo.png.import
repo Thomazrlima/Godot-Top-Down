@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mucvrstm1j4s"
-path="res://.godot/imported/SpriteSheet.png-bb312f5d5e9d09c6cc26c4adefbb1470.ctex"
+uid="uid://c1uivd0ibop3k"
+path="res://.godot/imported/DialogInfo.png-4c9b77a740cbe05decff01959c5faeb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/Dragon/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-bb312f5d5e9d09c6cc26c4adefbb1470.ctex"]
+source_file="res://dialog/DialogInfo.png"
+dest_files=["res://.godot/imported/DialogInfo.png-4c9b77a740cbe05decff01959c5faeb7.ctex"]
 
 [params]
 

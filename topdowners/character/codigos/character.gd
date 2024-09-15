@@ -10,12 +10,16 @@ var is_dead: bool = false
 var _state_machine
 var attacking: bool = false
 var knockback_time: float = 0.5  
-var knockback_timer: float = 0.0  
+var knockback_timer: float = 0.0
+var is_dashing: bool = false
+var dash_timer: float = 0.0
 
 @export_category("Variables")
 @export var SPEED: float = 90.0
 @export var ACCELERATION: float = 0.2
 @export var BREAK: float = 0.2
+@export var DASH_MULTIPLIER: float = 2.0
+@export var DASH_DURATION: float = 0.5
 
 @export_category("Objects")
 @export var _timer: Timer = null
@@ -42,7 +46,15 @@ func _physics_process(_delta: float) -> void:
 		knockback_timer -= _delta
 		move_and_slide()
 		return 
-		
+
+	if is_dashing:
+		dash_timer -= _delta
+		if dash_timer <= 0:
+			is_dashing = false
+			SPEED /= DASH_MULTIPLIER
+		else:
+			velocity = velocity.normalized() * SPEED
+
 	_move()
 	_attack()
 	_animate()
@@ -62,11 +74,16 @@ func _move() -> void:
 	if _direcao != Vector2.ZERO:
 		_update_animation_blend_position(_direcao)
 
-		velocity.x = lerp(velocity.x, _direcao.normalized().x * SPEED, ACCELERATION)
-		velocity.y = lerp(velocity.y, _direcao.normalized().y * SPEED, ACCELERATION)
+		if not is_dashing:
+			velocity.x = lerp(velocity.x, _direcao.normalized().x * SPEED, ACCELERATION)
+			velocity.y = lerp(velocity.y, _direcao.normalized().y * SPEED, ACCELERATION)
+		else:
+			velocity = _direcao.normalized() * SPEED
+
 	else:
-		velocity.x = lerp(velocity.x, _direcao.normalized().x * SPEED, BREAK)
-		velocity.y = lerp(velocity.y, _direcao.normalized().y * SPEED, BREAK)
+		if not is_dashing:
+			velocity.x = lerp(velocity.x, _direcao.normalized().x * SPEED, BREAK)
+			velocity.y = lerp(velocity.y, _direcao.normalized().y * SPEED, BREAK)
 
 func _attack() -> void:
 	if Input.is_action_just_pressed("attack") and not attacking:
@@ -118,14 +135,15 @@ func _on_attack_timer_timeout() -> void:
 func take_damage(damage: int, attacker_position: Vector2) -> void:
 	if is_dead:
 		return
-		
-	currentHealth -= damage
-	healthChanged.emit(currentHealth)
-	knockback(attacker_position)
-	effects.play("hurt")
-	hurtTimer.start()
-	await hurtTimer.timeout
-	effects.play("RESET")
+	
+	if not is_dashing:
+		currentHealth -= damage
+		healthChanged.emit(currentHealth)
+		knockback(attacker_position)
+		effects.play("hurt")
+		hurtTimer.start()
+		await hurtTimer.timeout
+		effects.play("RESET")
 	
 	if currentHealth <= 0:
 		die()
@@ -134,13 +152,21 @@ func die() -> void:
 	if is_dead:
 		return
 
-	print("Character died")
 	is_dead = true
 	_state_machine.travel("death")
 	await get_tree().create_timer(1.0).timeout
-	get_tree().reload_current_scene()
+	
+	get_tree().change_scene_to_file("res://menu/gamer_over.tscn")
+
 
 func knockback(attacker_position: Vector2) -> void:
 	var _knockbackDirection = (global_position - attacker_position).normalized() * knockbackPower
 	velocity = _knockbackDirection
-	knockback_timer = knockback_time 
+	knockback_timer = knockback_time
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("dash"):
+		if not is_dashing:
+			is_dashing = true
+			dash_timer = DASH_DURATION
+			SPEED *= DASH_MULTIPLIER
