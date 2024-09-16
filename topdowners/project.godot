@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TopDowners"
-run/main_scene="res://character/cenas/character.tscn"
+run/main_scene="res://menu/menu_principal.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
