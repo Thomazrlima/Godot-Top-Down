@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjecbucf4gvbb"]
+[gd_scene load_steps=18 format=3 uid="uid://du6rhal5mo868"]
 
-[ext_resource type="Script" path="res://character/codigos/dragon.gd" id="1_ucfoc"]
-[ext_resource type="Texture2D" uid="uid://tcix8sgika55" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Dragon/SpriteSheet.png" id="2_2xw7q"]
+[ext_resource type="Script" path="res://character/codigos/cyclope.gd" id="1_wp0xr"]
 [ext_resource type="Texture2D" uid="uid://jf7mn6s8uh7w" path="res://character/ninja/NinjaGreen/Shadow.png" id="3_q45ac"]
+[ext_resource type="Texture2D" uid="uid://db5f1csb5febi" path="res://character/Cyclope/SpriteSheet.png" id="3_x4y8m"]
 
 [sub_resource type="Animation" id="Animation_6g0dm"]
 length = 0.001
@@ -171,8 +171,8 @@ bg_color = Color(0.843413, 0.0917118, 3.85046e-07, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yiaiv"]
 bg_color = Color(0.238915, 0.715983, 0, 1)
 
-[node name="Dragon" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["enemy"]]
-script = ExtResource("1_ucfoc")
+[node name="Cyclope" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["enemy"]]
+script = ExtResource("1_wp0xr")
 _texture = NodePath("Sprite2D")
 _animation = NodePath("AnimationPlayer")
 
@@ -183,7 +183,7 @@ texture = ExtResource("3_q45ac")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 clip_children = 2
-texture = ExtResource("2_2xw7q")
+texture = ExtResource("3_x4y8m")
 hframes = 4
 vframes = 4
 
@@ -228,8 +228,8 @@ offset_right = 9.0
 offset_bottom = -8.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ap71k")
 theme_override_styles/fill = SubResource("StyleBoxFlat_yiaiv")
-max_value = 2.0
-value = 2.0
+max_value = 4.0
+value = 4.0
 show_percentage = false
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]

@@ -1,10 +1,10 @@
 extends CharacterBody2D
-class_name Dragon
+class_name Cyclope
 
 var _player_ref = null
 var _is_dead: bool = false
-var health: int = 2
-var attack_damage: int = 1 
+var health: int = 4
+var attack_damage: int = 1
 var can_attack: bool = true 
 
 @export_category("Objects")
@@ -19,7 +19,7 @@ var can_attack: bool = true
 
 func _ready() -> void:
 	effects.play("RESET")
-	life_bar.max_value = 2
+	life_bar.max_value = 4
 	life_bar.value = health
 	
 	if _cooldown_timer == null:

@@ -9,22 +9,22 @@ const _DIALOG_SCREEN: PackedScene = preload("res://dialog/dioaog_sreen.tscn")
 var _dialog_data: Dictionary = {
 	0: {
 		"faceset": "res://character/Boy/Faceset.png",
-		"dialog": "Moço, você bem que poderia sair da frente, né?",
+		"dialog": "Moço, é melhor você não ir para lá",
 		"title": "garoto"
 	},
 	1: {
 		"faceset": "res://character/ninja/NinjaGreen/Faceset.png",
-		"dialog": "Vê se cria vergonha na cara, vai procurar tua turma!",
+		"dialog": "Ué? Mas por quê?",
 		"title": "ninja"
 	},
 	2: {
 		"faceset": "res://character/Boy/Faceset.png",
-		"dialog": "Todos já morreram.",
+		"dialog": "O pessoal está dizendo que monstros estão aparecendo lá",
 		"title": "garoto"
 	},
 	3: {
 		"faceset": "res://character/ninja/NinjaGreen/Faceset.png",
-		"dialog": "Ah!",
+		"dialog": "A vila abandonada é moleza para mim",
 		"title": "ninja"
 	},
 }
