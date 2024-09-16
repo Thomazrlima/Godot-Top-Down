@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://4q4e2usj2rww"]
+
+[ext_resource type="Texture2D" uid="uid://bjx6afc5fe20e" path="res://character/Master/SpriteSheet.png" id="1_1nmo4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ish2c"]
+size = Vector2(16, 16)
+
+[node name="Master" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ish2c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1nmo4")
+hframes = 4
+vframes = 7

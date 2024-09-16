@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b17kee8r86uwg"]
+
+[ext_resource type="Texture2D" uid="uid://bitq2arf0bbeq" path="res://character/Monk/SpriteSheet.png" id="1_0ljsv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ish2c"]
+size = Vector2(16, 16)
+
+[node name="Monk" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ish2c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0ljsv")
+hframes = 4
+vframes = 7

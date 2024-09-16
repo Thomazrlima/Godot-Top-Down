@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjecbucf4gvbb"]
+[gd_scene load_steps=19 format=3 uid="uid://bjecbucf4gvbb"]
 
 [ext_resource type="Script" path="res://character/codigos/dragon.gd" id="1_ucfoc"]
-[ext_resource type="Texture2D" uid="uid://tcix8sgika55" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Dragon/SpriteSheet.png" id="2_2xw7q"]
+[ext_resource type="Texture2D" uid="uid://mucvrstm1j4s" path="res://character/Dragon/SpriteSheet.png" id="3_erq3f"]
 [ext_resource type="Texture2D" uid="uid://jf7mn6s8uh7w" path="res://character/ninja/NinjaGreen/Shadow.png" id="3_q45ac"]
+[ext_resource type="AudioStream" uid="uid://b618gjdhhfnfs" path="res://character/effects/HitDragon.wav" id="4_fchxd"]
 
 [sub_resource type="Animation" id="Animation_6g0dm"]
 length = 0.001
@@ -183,7 +184,7 @@ texture = ExtResource("3_q45ac")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 clip_children = 2
-texture = ExtResource("2_2xw7q")
+texture = ExtResource("3_erq3f")
 hframes = 4
 vframes = 4
 
@@ -231,6 +232,9 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_yiaiv")
 max_value = 2.0
 value = 2.0
 show_percentage = false
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fchxd")
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

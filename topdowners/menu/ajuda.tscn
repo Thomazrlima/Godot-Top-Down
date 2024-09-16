@@ -1,0 +1,203 @@
+[gd_scene load_steps=12 format=3 uid="uid://djxa0dr6ptvs7"]
+
+[ext_resource type="Script" path="res://menu/ajuda.gd" id="1_ci04c"]
+[ext_resource type="FontFile" uid="uid://bsubgh26ge32w" path="res://fonts/Crang.ttf" id="1_xe8tj"]
+[ext_resource type="Script" path="res://menu/parallax_background.gd" id="2_ijj1x"]
+[ext_resource type="AudioStream" uid="uid://dpwngm2vw77ur" path="res://character/effects/Accept.wav" id="2_pcgor"]
+[ext_resource type="Texture2D" uid="uid://8mu7wfdu5k21" path="res://menu/ajudaimg/parallax-forest-back-trees.png" id="3_8oics"]
+[ext_resource type="Texture2D" uid="uid://eik6jewmpjqm" path="res://menu/ajudaimg/parallax-forest-front-trees.png" id="4_u2w76"]
+[ext_resource type="Texture2D" uid="uid://ct7h1eg3ywcpc" path="res://menu/ajudaimg/parallax-forest-lights.png" id="5_2mqce"]
+[ext_resource type="Texture2D" uid="uid://cmkoeswo7j5e3" path="res://menu/ajudaimg/parallax-forest-middle-trees.png" id="6_72tgv"]
+[ext_resource type="AudioStream" uid="uid://b1sfwnqql1oxe" path="res://menu/musica/25 - End Theme 2.ogg" id="7_m0xe2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwb7d"]
+font = ExtResource("1_xe8tj")
+font_size = 30
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0f8k"]
+
+[node name="Ajuda" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ci04c")
+
+[node name="Accept" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_pcgor")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_top = 16.0
+offset_right = 116.0
+offset_bottom = 47.0
+grow_horizontal = 2
+text = "CONTROLES"
+label_settings = SubResource("LabelSettings_kwb7d")
+horizontal_alignment = 1
+
+[node name="Botoes" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -27.0
+offset_right = 162.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sair" type="Button" parent="Botoes" groups=["button"]]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u0f8k")
+text = "sair"
+flat = true
+
+[node name="Label2" type="Label" parent="Botoes/Sair"]
+show_behind_parent = true
+layout_mode = 2
+offset_left = 140.0
+offset_top = 7.0
+offset_right = 463.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+text = "Sair"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_ijj1x")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(161.783, 93)
+scale = Vector2(1.1841, 1.175)
+texture = ExtResource("3_8oics")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(324, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(161.839, 86.0356)
+scale = Vector2(1.20045, 1.20045)
+texture = ExtResource("4_u2w76")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(498, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(401, 93)
+scale = Vector2(2.96722, 1.13125)
+texture = ExtResource("5_2mqce")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(498, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(246, 91)
+scale = Vector2(1.85128, 1.14698)
+texture = ExtResource("6_72tgv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_m0xe2")
+autoplay = true
+parameters/looping = false
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 59.0
+offset_right = 288.0
+offset_bottom = 82.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+text = "W,A,S,D"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 59.0
+offset_right = 174.0
+offset_bottom = 82.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+text = "movimentação"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 84.0
+offset_right = 108.0
+offset_bottom = 107.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+text = "ataque"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 84.0
+offset_right = 293.0
+offset_bottom = 107.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+text = "mouse esq."
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 107.0
+offset_right = 85.0
+offset_bottom = 130.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+text = "dash"
+
+[node name="Label7" type="Label" parent="."]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 107.0
+offset_right = 292.0
+offset_bottom = 130.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+text = "espaço"
+
+[node name="Label8" type="Label" parent="."]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 130.0
+offset_right = 301.0
+offset_bottom = 153.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+text = "enter"
+
+[node name="Label9" type="Label" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 129.0
+offset_right = 109.0
+offset_bottom = 152.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xe8tj")
+text = "fala"

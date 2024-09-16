@@ -76,27 +76,27 @@ theme_override_fonts/font = ExtResource("1_q17ly")
 theme_override_font_sizes/font_size = 15
 text = "NOVO JOGO"
 
-[node name="Continuar" type="Button" parent="Botoes" groups=["button"]]
+[node name="Ajuda" type="Button" parent="Botoes" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_q17ly")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82x5b")
-text = "continuar"
+text = "ajuda"
 flat = true
 
-[node name="Label" type="Label" parent="Botoes/Continuar"]
+[node name="Label" type="Label" parent="Botoes/Ajuda"]
 show_behind_parent = true
 layout_mode = 0
-offset_left = 112.0
+offset_left = 132.0
 offset_top = 8.0
-offset_right = 216.0
+offset_right = 236.0
 offset_bottom = 28.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_q17ly")
-theme_override_font_sizes/font_size = 15
-text = "CONTINUAR"
+theme_override_font_sizes/font_size = 16
+text = "ajuda"
 
 [node name="Sair" type="Button" parent="Botoes" groups=["button"]]
 layout_mode = 2
@@ -157,7 +157,7 @@ position = Vector2(643, 92)
 scale = Vector2(0.169444, 0.169444)
 texture = ExtResource("7_gsxqp")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_s0vut")
 autoplay = true
 parameters/looping = false

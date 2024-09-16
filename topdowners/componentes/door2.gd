@@ -4,7 +4,7 @@ class_name Door2
 var player_ref: Character = null
 
 @export_category("Variables")
-@export var teleport_position: Vector2 = Vector2(25, 110)
+@export var teleport_position: Vector2 = Vector2(26, 112)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Character:

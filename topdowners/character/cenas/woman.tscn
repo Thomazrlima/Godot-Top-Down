@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctefl21wrtn0g"]
+
+[ext_resource type="Texture2D" uid="uid://bokduerxy7sy6" path="res://character/Woman/SpriteSheet.png" id="1_xpe14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iciq4"]
+size = Vector2(16, 16)
+
+[node name="Woman" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iciq4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xpe14")
+hframes = 4
+vframes = 7
+frame = 8

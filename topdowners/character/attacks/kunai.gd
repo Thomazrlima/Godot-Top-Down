@@ -9,7 +9,8 @@ func _ready() -> void:
 	var angle = _direction.angle()
 	rotation_degrees = rad_to_deg(angle)
 
-	connect("body_entered", Callable(self, "_on_body_entered"))
+	if not is_connected("body_entered", Callable(self, "_on_body_entered")):
+		connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _physics_process(delta: float) -> void:
 	translate(_direction * delta * 200)
@@ -17,4 +18,4 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("enemy"):
 		body.take_damage(damage)
-		queue_free()  
+		queue_free()

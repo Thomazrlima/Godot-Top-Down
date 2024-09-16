@@ -101,7 +101,6 @@ func spawn_kunai() -> void:
 	var kunai = KUNAI.instantiate()
 	kunai.global_position = global_position + Vector2(0, 0.5)
 	get_tree().root.call_deferred("add_child", kunai)
-	print("Kunai lançada")
 
 func _animate() -> void:
 	var direction = get_direction()
@@ -138,6 +137,7 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 		return
 	
 	if not is_dashing:
+		hurt.play()
 		currentHealth -= damage
 		healthChanged.emit(currentHealth)
 		knockback(attacker_position)
@@ -145,7 +145,6 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 		hurtTimer.start()
 		await hurtTimer.timeout
 		effects.play("RESET")
-		hurt.play()
 	
 	if currentHealth <= 0:
 		die()

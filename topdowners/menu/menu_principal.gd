@@ -15,8 +15,8 @@ func _on_button_pressed(_button: Button) -> void:
 		"Novo Jogo":
 			get_tree().change_scene_to_file("res://levels/level.tscn")
 		
-		"Continuar":
-			get_tree().change_scene_to_file("res://levels/level.tscn")
+		"Ajuda":
+			get_tree().change_scene_to_file("res://menu/ajuda.tscn")
 		
 		"Sair":
 			get_tree().quit()

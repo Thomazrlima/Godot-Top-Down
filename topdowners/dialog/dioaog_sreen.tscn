@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://8w74e2p0o4xq"]
 
-[ext_resource type="Script" path="res://dioaog_sreen.gd" id="1_0beet"]
 [ext_resource type="Texture2D" uid="uid://cqrx2cms0hhsn" path="res://dialog/DialogBoxFaceset.png" id="1_b4cg2"]
+[ext_resource type="Script" path="res://dialog/dioaog_sreen.gd" id="1_lccdq"]
 [ext_resource type="FontFile" uid="uid://bek5gyrrjvh8b" path="res://dialog/DigitalDisco.ttf" id="3_lcal4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xex6h"]
@@ -22,7 +22,7 @@ offset_right = 150.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("1_0beet")
+script = ExtResource("1_lccdq")
 _name = NodePath("Name")
 _dialog = NodePath("DialogBoxFaceset/HContainer/VBoxContainer/Dialog")
 _faceset = NodePath("DialogBoxFaceset/HContainer/Border/Faceset")

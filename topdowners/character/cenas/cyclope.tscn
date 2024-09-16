@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://du6rhal5mo868"]
+[gd_scene load_steps=19 format=3 uid="uid://du6rhal5mo868"]
 
 [ext_resource type="Script" path="res://character/codigos/cyclope.gd" id="1_wp0xr"]
 [ext_resource type="Texture2D" uid="uid://jf7mn6s8uh7w" path="res://character/ninja/NinjaGreen/Shadow.png" id="3_q45ac"]
-[ext_resource type="Texture2D" uid="uid://db5f1csb5febi" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope/SpriteSheet.png" id="3_x4y8m"]
+[ext_resource type="Texture2D" uid="uid://db5f1csb5febi" path="res://character/Cyclope/SpriteSheet.png" id="3_x4y8m"]
+[ext_resource type="AudioStream" uid="uid://csqtnpepyfj46" path="res://character/effects/HitCyclope.wav" id="4_qqd1y"]
 
 [sub_resource type="Animation" id="Animation_6g0dm"]
 length = 0.001
@@ -231,6 +232,9 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_yiaiv")
 max_value = 4.0
 value = 4.0
 show_percentage = false
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qqd1y")
 
 [connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]

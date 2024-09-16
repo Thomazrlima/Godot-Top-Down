@@ -16,6 +16,7 @@ var can_attack: bool = true
 @onready var effects = $Effects
 @onready var hurtTimer = $hurtTimer
 @onready var life_bar: ProgressBar = $ProgressBar
+@onready var hurt: AudioStreamPlayer2D = $hurt
 
 func _ready() -> void:
 	effects.play("RESET")
@@ -80,17 +81,18 @@ func _animate() -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
-	life_bar.value = health  
+	life_bar.value = health
+	hurt.play()  
+	
+	if health <= 0:
+		die()
 	
 	effects.play("hurt")
 	hurtTimer.start()
 	await hurtTimer.timeout
 	effects.play("RESET")
-	
-	if health <= 0:
-		die()
 
 func die() -> void:
 	_is_dead = true
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.2).timeout
 	queue_free()

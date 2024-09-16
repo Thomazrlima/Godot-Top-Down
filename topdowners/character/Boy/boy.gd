@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var animation_dialog = $AnimationDialog
 @onready var _hud: CanvasLayer = $CanvasLayer
 
-const _DIALOG_SCREEN: PackedScene = preload("res://dialog/dioaog_sreen.tscn") 
+const _DIALOG_SCREEN: PackedScene = preload("res://dialog/dioaog_sreen.tscn")
 
 var _dialog_data: Dictionary = {
 	0: {
