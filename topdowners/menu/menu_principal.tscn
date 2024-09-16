@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdvidg88wlcge"]
+[gd_scene load_steps=10 format=3 uid="uid://bdvidg88wlcge"]
 
 [ext_resource type="Script" path="res://menu/menu_principal.gd" id="1_6kueg"]
 [ext_resource type="FontFile" uid="uid://bsubgh26ge32w" path="res://fonts/Crang.ttf" id="1_q17ly"]
+[ext_resource type="Script" path="res://menu/parallax_background.gd" id="3_y84ng"]
+[ext_resource type="Texture2D" uid="uid://tlcvmj8so0al" path="res://menu/j4.png" id="4_wkynh"]
+[ext_resource type="Texture2D" uid="uid://c4vjo00uf4a7v" path="res://menu/j3.png" id="5_xoxde"]
+[ext_resource type="Texture2D" uid="uid://dkpliv5jrrtkk" path="res://menu/j2.png" id="6_dlex6"]
+[ext_resource type="Texture2D" uid="uid://dpwt88j6etx0w" path="res://menu/j1.png" id="7_gsxqp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yo6or"]
 font = ExtResource("1_q17ly")
@@ -20,15 +25,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6kueg")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0687983, 0.0687983, 0.0687983, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -61,35 +57,101 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_q17ly")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82x5b")
 text = "novo jogo"
 flat = true
 
+[node name="Label" type="Label" parent="Botoes/Novo Jogo"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 113.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_q17ly")
+theme_override_font_sizes/font_size = 15
+text = "NOVO JOGO"
+
 [node name="Continuar" type="Button" parent="Botoes" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_q17ly")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82x5b")
 text = "continuar"
 flat = true
 
+[node name="Label" type="Label" parent="Botoes/Continuar"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_q17ly")
+theme_override_font_sizes/font_size = 15
+text = "CONTINUAR"
+
 [node name="Sair" type="Button" parent="Botoes" groups=["button"]]
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_q17ly")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_82x5b")
 text = "sair"
 flat = true
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label" type="Label" parent="Botoes/Sair"]
+show_behind_parent = true
 layout_mode = 0
-offset_left = 213.0
-offset_top = 168.0
-offset_right = 317.0
-offset_bottom = 191.0
+offset_left = 140.0
+offset_top = 7.0
+offset_right = 183.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_q17ly")
-theme_override_font_sizes/font_size = 8
-text = "made by Thomazrlima"
+text = "SAIR"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("3_y84ng")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(157.5, 90)
+scale = Vector2(0.169271, 0.17037)
+texture = ExtResource("4_wkynh")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(630, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(311, 90)
+scale = Vector2(0.167593, 0.167593)
+texture = ExtResource("5_xoxde")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(960, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(475, 89)
+scale = Vector2(0.168518, 0.168518)
+texture = ExtResource("6_dlex6")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1294, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(643, 92)
+scale = Vector2(0.169444, 0.169444)
+texture = ExtResource("7_gsxqp")

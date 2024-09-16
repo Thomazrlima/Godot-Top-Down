@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://character/codigos/cyclope.gd" id="1_wp0xr"]
 [ext_resource type="Texture2D" uid="uid://jf7mn6s8uh7w" path="res://character/ninja/NinjaGreen/Shadow.png" id="3_q45ac"]
-[ext_resource type="Texture2D" uid="uid://db5f1csb5febi" path="res://character/Cyclope/SpriteSheet.png" id="3_x4y8m"]
+[ext_resource type="Texture2D" uid="uid://db5f1csb5febi" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Cyclope/SpriteSheet.png" id="3_x4y8m"]
 
 [sub_resource type="Animation" id="Animation_6g0dm"]
 length = 0.001
