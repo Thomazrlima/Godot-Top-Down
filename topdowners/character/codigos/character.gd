@@ -29,6 +29,7 @@ var dash_timer: float = 0.0
 @export var knockbackPower: int = 100
 @onready var effects = $Effects
 @onready var hurtTimer = $HurtTimer
+@onready var hurt: AudioStreamPlayer2D = $hurt
 
 func _ready() -> void:
 	effects.play("RESET")
@@ -144,6 +145,7 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 		hurtTimer.start()
 		await hurtTimer.timeout
 		effects.play("RESET")
+		hurt.play()
 	
 	if currentHealth <= 0:
 		die()

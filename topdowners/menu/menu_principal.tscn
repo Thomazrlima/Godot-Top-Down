@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdvidg88wlcge"]
+[gd_scene load_steps=11 format=3 uid="uid://bdvidg88wlcge"]
 
 [ext_resource type="Script" path="res://menu/menu_principal.gd" id="1_6kueg"]
 [ext_resource type="FontFile" uid="uid://bsubgh26ge32w" path="res://fonts/Crang.ttf" id="1_q17ly"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c4vjo00uf4a7v" path="res://menu/j3.png" id="5_xoxde"]
 [ext_resource type="Texture2D" uid="uid://dkpliv5jrrtkk" path="res://menu/j2.png" id="6_dlex6"]
 [ext_resource type="Texture2D" uid="uid://dpwt88j6etx0w" path="res://menu/j1.png" id="7_gsxqp"]
+[ext_resource type="AudioStream" uid="uid://b2naaa26mijss" path="res://menu/musica/31 - Sunny.ogg" id="8_s0vut"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yo6or"]
 font = ExtResource("1_q17ly")
@@ -155,3 +156,8 @@ motion_mirroring = Vector2(1294, 0)
 position = Vector2(643, 92)
 scale = Vector2(0.169444, 0.169444)
 texture = ExtResource("7_gsxqp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_s0vut")
+autoplay = true
+parameters/looping = false

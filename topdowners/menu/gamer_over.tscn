@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bp07hv7ygbg21"]
+[gd_scene load_steps=11 format=3 uid="uid://bp07hv7ygbg21"]
 
 [ext_resource type="Script" path="res://menu/gamer_over.gd" id="1_cmai6"]
 [ext_resource type="FontFile" uid="uid://bsubgh26ge32w" path="res://fonts/Crang.ttf" id="1_nxh2d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bum8eyupn0acs" path="res://menu/gameoverimg/parallax-demon-woods-far-trees.png" id="5_iyeik"]
 [ext_resource type="Texture2D" uid="uid://celqkyeb0f0o8" path="res://menu/gameoverimg/parallax-demon-woods-mid-trees.png" id="6_h625a"]
 [ext_resource type="Texture2D" uid="uid://bogmsynd3un5m" path="res://menu/gameoverimg/parallax-demon-woods-close-trees.png" id="7_nrrcw"]
+[ext_resource type="AudioStream" uid="uid://b1sfwnqql1oxe" path="res://menu/musica/25 - End Theme 2.ogg" id="8_ob436"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bojd6"]
 font = ExtResource("1_nxh2d")
@@ -131,3 +132,8 @@ motion_mirroring = Vector2(630, 0)
 position = Vector2(316.397, 91.9796)
 scale = Vector2(1.07974, 0.668968)
 texture = ExtResource("7_nrrcw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ob436")
+autoplay = true
+parameters/looping = false

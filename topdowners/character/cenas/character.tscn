@@ -1,8 +1,9 @@
-[gd_scene load_steps=58 format=3 uid="uid://crrkqf7j0gil2"]
+[gd_scene load_steps=59 format=3 uid="uid://crrkqf7j0gil2"]
 
 [ext_resource type="Texture2D" uid="uid://dj8f60xj5wt7m" path="res://character/ninja/NinjaGreen/SpriteSheet.png" id="1_1r2kg"]
 [ext_resource type="Script" path="res://character/codigos/character.gd" id="1_ccwwm"]
 [ext_resource type="Texture2D" uid="uid://jf7mn6s8uh7w" path="res://character/ninja/NinjaGreen/Shadow.png" id="2_560t6"]
+[ext_resource type="AudioStream" uid="uid://v1x104ju3ofl" path="res://character/effects/HitPlayer.wav" id="4_3omji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yprwf"]
 size = Vector2(14, 4)
@@ -1020,6 +1021,9 @@ libraries = {
 
 [node name="HurtTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3omji")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="Areaattack" to="." method="_on_areaattack_body_entered"]
